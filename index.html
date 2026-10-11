@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0f2417">
-<meta name="description" content="Официальный портал фракции National Park Service San-Andreas Gambit RP.">
+<meta name="description" content="Официальный портал фракции National Park Service San-Andreas на Gambit RP.">
 <title>National Park Service · San-Andreas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,10 +105,20 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,inp
 .image-caption small{color:var(--gold);text-transform:uppercase;letter-spacing:.15em;font-size:9px}.image-caption p{font:italic 20px var(--serif);margin:7px 0 0}
 .split-copy h2{font:500 clamp(36px,4vw,55px)/1.13 var(--serif);letter-spacing:-.04em;margin:16px 0 22px}
 .split-copy>p{color:#aebcaf;max-width:510px;font-size:13px;line-height:2}
+
+/* Стили для интерактивных департаментов и веток */
 .dept-list{margin-top:30px;border-top:1px solid var(--line)}
-.dept-row{display:grid;grid-template-columns:50px 1fr auto;align-items:center;gap:17px;padding:18px 0;border-bottom:1px solid var(--line);transition:padding .25s}
-.dept-row:hover{padding-left:8px}.dept-icon{width:46px;height:46px;border:1px solid #ffffff25;display:grid;place-items:center;color:var(--gold);font-size:16px}
+.dept-row{display:grid;grid-template-columns:50px 1fr auto;align-items:center;gap:17px;padding:18px 0;border-bottom:1px solid var(--line);transition:all .25s;cursor:pointer}
+.dept-row:hover{padding-left:8px;background:rgba(255,255,255,.03)}
+.dept-row.active{background:rgba(196,163,90,.1);border-left:3px solid var(--gold);padding-left:12px}
+.dept-icon{width:46px;height:46px;border:1px solid #ffffff25;display:grid;place-items:center;color:var(--gold);font-size:16px}
 .dept-row h3{font-size:13px;margin:0 0 4px}.dept-row p{font-size:11px;color:#aab8aa;margin:0}.dept-count{text-align:right;font:500 20px var(--serif);color:var(--gold-light)}.dept-count small{display:block;font:9px var(--sans);color:#91a091;text-transform:uppercase;letter-spacing:.1em}
+.dept-branch-details{margin-top:25px;background:#142d1e;border:1px solid var(--gold);padding:25px;color:white;display:none;animation:rise .4s var(--ease)}
+.dept-branch-details h4{font:500 20px var(--serif);color:var(--gold-light);margin:0 0 10px}
+.dept-branch-details p{font-size:12px;color:#c5d0c5;line-height:1.8;margin:0 0 15px}
+.dept-branch-features{display:flex;gap:15px;flex-wrap:wrap;font-size:11px;color:var(--sand)}
+.dept-branch-features span{background:rgba(255,255,255,.05);padding:6px 12px;border:1px solid #ffffff15}
+
 .hierarchy{background:#e9e5d9}
 .hierarchy-intro{max-width:610px;color:#647064}
 .rank-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#c9c8b8;border:1px solid #c9c8b8;margin-top:42px}
@@ -197,7 +207,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,inp
 <div class="topbar">
  <div class="container topbar-inner">
   <div class="topbar-left">Официальный портал · Фракция Gambit RP · SAMP</div>
-  <div class="topbar-right"><span><i class="fa-regular fa-clock"></i> Игровое время: <b id="game-time">01:02</b></span><span><i class="live-dot"></i> Служба активна</span><div class="lang-switch" aria-label="Язык"><button class="active" type="button">RU</button><span>/</span><button type="button" title="Демонстрационный переключатель">EN</button></div></div>
+  <div class="topbar-right"><span><i class="fa-regular fa-clock"></i> Время МСК: <b id="game-time">--:--</b></span><span><i class="live-dot"></i> Служба активна</span><div class="lang-switch" aria-label="Язык"><button class="active" type="button">RU</button><span>/</span><button type="button" title="Демонстрационный переключатель">EN</button></div></div>
  </div>
 </div>
 <header class="site-header" id="site-header">
@@ -263,17 +273,52 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,inp
  </div>
 </section>
 
+<!-- РАЗДЕЛ ДЕПАРТАМЕНТОВ С ИНТЕРАКТИВНЫМИ ВЕТКАМИ -->
 <section class="section section-dark" id="departments">
  <div class="container split-layout">
   <div class="split-image reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=85" alt="Тропа среди высоких деревьев"><div class="image-caption"><small>Единый стандарт службы</small><p>«Профессионализм начинается с ответственности»</p></div></div>
-  <div class="split-copy reveal"><div class="eyebrow">Организация службы</div><h2>Пять направлений.<br>Одна миссия.</h2><p>Каждый департамент выполняет специализированные задачи и взаимодействует с другими подразделениями. Чёткая координация позволяет действовать быстро и сохранять безопасность посетителей.</p>
-   <div class="dept-list">
-    <div class="dept-row"><span class="dept-icon"><i class="fa-solid fa-shield-halved"></i></span><div><h3>Law Enforcement Division</h3><p>Правоохранительная деятельность и патрули</p></div><div class="dept-count">06<small>сотрудников</small></div></div>
-    <div class="dept-row"><span class="dept-icon"><i class="fa-solid fa-truck-medical"></i></span><div><h3>Search & Rescue Division</h3><p>Поисково-спасательные операции</p></div><div class="dept-count">04<small>сотрудника</small></div></div>
-    <div class="dept-row"><span class="dept-icon"><i class="fa-solid fa-fire-extinguisher"></i></span><div><h3>Fire & Forestry Division</h3><p>Лесная безопасность и пожары</p></div><div class="dept-count">05<small>сотрудников</small></div></div>
-    <div class="dept-row"><span class="dept-icon"><i class="fa-solid fa-paw"></i></span><div><h3>Wildlife Protection Division</h3><p>Охрана животных и среды обитания</p></div><div class="dept-count">03<small>сотрудника</small></div></div>
-    <div class="dept-row"><span class="dept-icon"><i class="fa-solid fa-tower-broadcast"></i></span><div><h3>Dispatch & Communications</h3><p>Связь, координация, регистрация вызовов</p></div><div class="dept-count">02<small>сотрудника</small></div></div>
+  <div class="split-copy reveal">
+   <div class="eyebrow">Организация службы</div>
+   <h2>Пять направлений.<br>Одна миссия.</h2>
+   <p>Нажмите на любое подразделение ниже, чтобы открыть подробную служебную ветку, задачи и специфику направления.</p>
+   
+   <div class="dept-list" id="dept-list">
+    <div class="dept-row" data-dept="le">
+     <span class="dept-icon"><i class="fa-solid fa-shield-halved"></i></span>
+     <div><h3>Law Enforcement Division</h3><p>Правоохранительная деятельность и патрули</p></div>
+     <div class="dept-count">06<small>сотрудников</small></div>
+    </div>
+    <div class="dept-row" data-dept="sar">
+     <span class="dept-icon"><i class="fa-solid fa-truck-medical"></i></span>
+     <div><h3>Search & Rescue Division</h3><p>Поисково-спасательные операции</p></div>
+     <div class="dept-count">04<small>сотрудника</small></div>
+    </div>
+    <div class="dept-row" data-dept="fire">
+     <span class="dept-icon"><i class="fa-solid fa-fire-extinguisher"></i></span>
+     <div><h3>Fire & Forestry Division</h3><p>Лесная безопасность и пожары</p></div>
+     <div class="dept-count">05<small>сотрудников</small></div>
+    </div>
+    <div class="dept-row" data-dept="wild">
+     <span class="dept-icon"><i class="fa-solid fa-paw"></i></span>
+     <div><h3>Wildlife Protection Division</h3><p>Охрана животных и среды обитания</p></div>
+     <div class="dept-count">03<small>сотрудника</small></div>
+    </div>
+    <div class="dept-row" data-dept="disp">
+     <span class="dept-icon"><i class="fa-solid fa-tower-broadcast"></i></span>
+     <div><h3>Dispatch & Communications</h3><p>Связь, координация, регистрация вызовов</p></div>
+     <div class="dept-count">02<small>сотрудника</small></div>
+    </div>
    </div>
+
+   <!-- Интерактивная карточка ветки департамента -->
+   <div class="dept-branch-details" id="dept-branch-details">
+    <h4 id="branch-title">Выберите департамент</h4>
+    <p id="branch-desc">Нажмите на нужный пункт в списке выше, чтобы ознакомиться с подробной информацией о структуре и задачах подразделения.</p>
+    <div class="dept-branch-features" id="branch-features">
+     <span><i></i> Ожидание выбора...</span>
+    </div>
+   </div>
+
   </div>
  </div>
 </section>
@@ -325,7 +370,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,inp
  </div>
 </section>
 
-<!-- НОВЫЙ РАЗДЕЛ: ЛИЧНЫЙ КАБИНЕТ (ЛК) -->
+<!-- РАЗДЕЛ: ЛИЧНЫЙ КАБИНЕТ (ЛК) -->
 <section class="section section-dark" id="lk">
  <div class="container">
   <div class="section-heading reveal">
@@ -391,7 +436,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,inp
      </div>
     </div>
 
-    <!-- Панель руководства (видна директорам/командованию) -->
+    <!-- Панель руководства -->
     <div class="admin-panel-box" id="admin-panel" style="display:none;">
      <h5>Панель руководства: входящие заявки с сайта</h5>
      <div id="applications-list">
@@ -469,7 +514,7 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,inp
 </footer>
 <button class="back-top" id="back-top" aria-label="Наверх"><i class="fa-solid fa-arrow-up"></i><svg viewBox="0 0 54 54" aria-hidden="true"><circle id="progress-circle" cx="27" cy="27" r="24"/></svg></button>
 <script>
-/* Vanilla JS: мобильная навигация, анимации, карусель, аккордеоны, форма и личный кабинет */
+/* Vanilla JS: мобильная навигация, анимации, карусель, аккордеоны, форма, личный кабинет и московское время */
 (() => {
  const header = document.getElementById('site-header');
  const nav = document.getElementById('main-nav');
@@ -479,17 +524,66 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,inp
  const heroBg = document.getElementById('hero-bg');
  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
- // Демонстрационное игровое время — не связано с реальным сервером.
+ // Реальное московское время (MSK)
  const gameTime = document.getElementById('game-time');
- let demoMinutes = 14 * 60 + 32;
- function tickGameClock() {
-   const h = String(Math.floor(demoMinutes / 60) % 24).padStart(2, '0');
-   const m = String(demoMinutes % 60).padStart(2, '0');
-   gameTime.textContent = `${h}:${m}`;
-   demoMinutes = (demoMinutes + 1) % 1440;
+ function updateMoscowTime() {
+   const now = new Date();
+   const options = { timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit', hour12: false };
+   gameTime.textContent = new Intl.DateTimeFormat('ru-RU', options).format(now);
  }
- tickGameClock();
- setInterval(tickGameClock, 60000);
+ updateMoscowTime();
+ setInterval(updateMoscowTime, 1000);
+
+ // Интерактивные ветки департаментов
+ const deptData = {
+   le: {
+     title: "Law Enforcement Division (Правоохранительный отдел)",
+     desc: "Обеспечение правопорядка на охраняемых природных территориях, пресечение правонарушений, проверка лицензий на охоту/рыбалку и патрулирование дорог.",
+     features: ["Патрулирование зон", "Контроль правопорядка", "Трафик-стопы", "Взаимодействие с LSPD/SAHP"]
+   },
+   sar: {
+     title: "Search & Rescue Division (Поисково-спасательный отдел)",
+     desc: "Проведение поисковых операций в горах и лесах штата, экстренная эвакуация пострадавших туристов, альпинистская поддержка и первая помощь.",
+     features: ["Горный поиск", "Эвакуация вертолетом", "Медицинская помощь", "Работа в экстремальных условиях"]
+   },
+   fire: {
+     title: "Fire & Forestry Division (Лесопожарный отдел)",
+     desc: "Мониторинг пожароопасной обстановки, раннее выявление очагов возгорания, профилактика лесных пожаров и координация расчётов.",
+     features: ["Пожарный мониторинг", "Противопожарные полосы", "Контроль костров", "Ликвидация возгораний"]
+   },
+   wild: {
+     title: "Wildlife Protection Division (Отдел охраны фауны)",
+     desc: "Борьба с браконьерством, охрана редких видов животных и экосистем, мониторинг популяции и биотехнические мероприятия.",
+     features: ["Защита животных", "Рейды на браконьеров", "Экологический мониторинг", "Научный учет"]
+   },
+   disp: {
+     title: "Dispatch & Communications (Диспетчерский центр)",
+     desc: "Координация патрулей и спасательных команд в реальном времени, приём экстренных вызовов от туристов, управление радиочастотами.",
+     features: ["Координация сил", "Прием вызовов 911", "Радиообмен", "Логистика операций"]
+   }
+ };
+
+ const deptRows = document.querySelectorAll('.dept-row');
+ const branchDetails = document.getElementById('dept-branch-details');
+ const branchTitle = document.getElementById('branch-title');
+ const branchDesc = document.getElementById('branch-desc');
+ const branchFeatures = document.getElementById('branch-features');
+
+ deptRows.forEach(row => {
+   row.addEventListener('click', () => {
+     deptRows.forEach(r => r.classList.remove('active'));
+     row.classList.add('active');
+     
+     const key = row.getAttribute('data-dept');
+     const data = deptData[key];
+     if(data) {
+       branchDetails.style.display = 'block';
+       branchTitle.textContent = data.title;
+       branchDesc.textContent = data.desc;
+       branchFeatures.innerHTML = data.features.map(f => `<span><i class="fa-solid fa-check" style="color:var(--gold)"></i> ${f}</span>`).join('');
+     }
+   });
+ });
 
  // Бургер и подменю на сенсорных экранах.
  menuToggle.addEventListener('click', () => {
@@ -694,7 +788,6 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,inp
      date: new Date().toLocaleString()
    };
 
-   // Сохраняем в localStorage для просмотра в ЛК руководства
    let apps = JSON.parse(localStorage.getItem('nps_applications') || '[]');
    apps.unshift(newApp);
    localStorage.setItem('nps_applications', JSON.stringify(apps));
